@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Chúc mừng 20/10</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+        overflow: hidden;
+        font-family: "Mali", cursive;
+        height: 100vh;
+        position: relative;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .center-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.25),
+          rgba(255, 240, 245, 0.2)
+        );
+        padding: 40px 50px;
+        border-radius: 30px;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #c2185b;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(216, 27, 96, 0.2),
+          0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+          0 8px 32px rgba(255, 182, 193, 0.3);
+        z-index: 1;
+        max-width: 90%;
+        animation: pulse 3s ease-in-out infinite;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        50% {
+          transform: translate(-50%, -50%) scale(1.05);
+        }
+      }
+
+      .center-message strong {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+        background: linear-gradient(45deg, #d81b60, #f06292, #d81b60);
+        background-size: 200% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 3s ease infinite;
+      }
+
+      @keyframes gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 99;
+        display: none;
+        animation: fadeInOverlay 0.3s ease;
+      }
+
+      @keyframes fadeInOverlay {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .overlay.active {
+        display: block;
+      }
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
+        border-radius: 25px;
+        box-shadow: 0 25px 80px rgba(216, 27, 96, 0.4);
+        padding: 30px;
+        text-align: center;
+        z-index: 100;
+        width: 90%;
+        max-width: 400px;
+        display: none;
+        animation: popupShow 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          forwards;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+      }
+
+      @keyframes popupShow {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.5) rotate(-5deg);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        }
+      }
+
+      /* .popup::before {
+            content: '🌸';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            animation: bounce 1s ease-in-out infinite;
+        } */
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+      }
+
+      .popup-content {
+        margin-top: 20px;
+      }
+
+      .popup img {
+        max-width: 100%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 3px solid white;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .popup img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Photo Gallery Modal */
+      .gallery-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+      }
+
+      .gallery-modal.active {
+        display: flex;
+      }
+
+      .gallery-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+      }
+
+      .gallery-image {
+        max-width: 100%;
+        max-height: 80vh;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        animation: galleryZoomIn 0.5s ease-out;
+      }
+
+      @keyframes galleryZoomIn {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .gallery-close {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+      }
+
+      .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-nav:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .gallery-prev {
+        left: -80px;
+      }
+
+      .gallery-next {
+        right: -80px;
+      }
+
+      .gallery-caption {
+        color: white;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        padding: 0 20px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .popup p {
+        font-size: 1.1rem;
+        color: #d81b60;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-weight: 500;
+        min-height: 60px;
+        overflow: hidden;
+      }
+
+      .typing-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.2em;
+        background-color: #d81b60;
+        animation: blink 1s infinite;
+        margin-left: 2px;
+      }
+
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+
+      .popup button {
+        margin-top: 10px;
+        background: linear-gradient(135deg, #d81b60 0%, #f06292 100%);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 5px 20px rgba(216, 27, 96, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .popup button:hover {
+        background: linear-gradient(135deg, #ad1457 0%, #e91e63 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(216, 27, 96, 0.5);
+      }
+
+      .popup button:active {
+        transform: translateY(0);
+      }
+
+      .falling-letter {
+        position: absolute;
+        top: -100px;
+        width: 50px;
+        height: auto;
+        animation: fall linear;
+        cursor: pointer;
+        user-select: none;
+        z-index: 2;
+        animation-duration: 8s;
+        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+        transition: transform 0.3s ease;
+      }
+
+      .falling-letter:hover {
+        transform: scale(1.2) rotate(10deg);
+        filter: drop-shadow(0 10px 20px rgba(216, 27, 96, 0.4));
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+          opacity: 1;
+        }
+
+        20% {
+          transform: translateY(20vh) translateX(-20px) rotate(-10deg);
+        }
+
+        40% {
+          transform: translateY(40vh) translateX(15px) rotate(8deg);
+        }
+
+        60% {
+          transform: translateY(60vh) translateX(-15px) rotate(-6deg);
+        }
+
+        80% {
+          transform: translateY(80vh) translateX(10px) rotate(4deg);
+        }
+
+        100% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0.3;
+        }
+      }
+
+      @keyframes letterClick {
+        0% {
+          transform: scale(1) rotate(0deg);
+        }
+
+        50% {
+          transform: scale(1.3) rotate(360deg);
+        }
+
+        100% {
+          transform: scale(0) rotate(720deg);
+        }
+      }
+
+      .letter-clicked {
+        animation: letterClick 0.6s ease-out forwards !important;
+      }
+
+      .heart {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        animation: explode 2s ease-out forwards;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      @keyframes explode {
+        0% {
+          transform: translate(-50%, -50%) translate(0, 0);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translate(-50%, -50%) translate(var(--dx), var(--dy))
+            scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .center-gif {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        max-width: 40vw;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      /* Floating particles */
+      .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float 6s ease-in-out infinite;
+        box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+      }
+
+      .particle:nth-child(odd) {
+        background: rgba(255, 192, 203, 0.9);
+        animation-duration: 8s;
+        animation-delay: -2s;
+      }
+
+      .particle:nth-child(3n) {
+        background: rgba(255, 105, 180, 0.7);
+        animation-duration: 10s;
+        animation-delay: -4s;
+        width: 8px;
+        height: 8px;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) translateX(0px) rotate(0deg);
+          opacity: 0.7;
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px) rotate(90deg);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(-40px) translateX(-5px) rotate(180deg);
+          opacity: 0.8;
+        }
+        75% {
+          transform: translateY(-20px) translateX(15px) rotate(270deg);
+          opacity: 0.9;
+        }
+      }
+
+      /* Sparkle effect */
+      .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: sparkle 2s ease-in-out infinite;
+      }
+
+      @keyframes sparkle {
+        0%, 100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Flower particles */
+      .flower {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+        animation: flowerFloat 12s linear infinite;
+        opacity: 0.8;
+      }
+
+      .flower::before {
+        content: "🌸";
+        font-size: 20px;
+        display: block;
+        animation: flowerRotate 3s ease-in-out infinite;
+      }
+
+      .flower:nth-child(2n)::before {
+        content: "🌺";
+        animation-delay: -1s;
+      }
+
+      .flower:nth-child(3n)::before {
+        content: "🌼";
+        animation-delay: -2s;
+      }
+
+      .flower:nth-child(4n)::before {
+        content: "🌻";
+        animation-delay: -0.5s;
+      }
+
+      .flower:nth-child(5n)::before {
+        content: "🌷";
+        animation-delay: -1.5s;
+      }
+
+      @keyframes flowerFloat {
+        0% {
+          transform: translateY(100vh) translateX(0px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-100px) translateX(50px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes flowerRotate {
+        0%, 100% {
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.1);
+        }
+      }
+
+      /* Heart particles */
+      .heart-particle {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        pointer-events: none;
+        animation: heartFloat 8s ease-in-out infinite;
+        opacity: 0.9;
+      }
+
+      .heart-particle::before {
+        content: "💕";
+        font-size: 15px;
+        display: block;
+        animation: heartPulse 2s ease-in-out infinite;
+      }
+
+      .heart-particle:nth-child(2n)::before {
+        content: "💖";
+        animation-delay: -0.5s;
+      }
+
+      .heart-particle:nth-child(3n)::before {
+        content: "💗";
+        animation-delay: -1s;
+      }
+
+      @keyframes heartFloat {
+        0% {
+          transform: translateY(100vh) translateX(0px) rotate(0deg);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.9;
+        }
+        80% {
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(-100px) translateX(-30px) rotate(180deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes heartPulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* ------------------------------
+        Responsive cho màn hình nhỏ
+        ---------------------------------- */
+      @media (max-width: 768px) {
+        .center-message {
+          width: calc(100% - 20px);
+          max-width: none;
+          padding: 20px 15px;
+          font-size: 1.1rem;
+          border-radius: 20px;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .center-message strong {
+          font-size: 1.3rem;
+          margin-bottom: 10px;
+        }
+
+        .popup {
+          width: 90%;
+          padding: 20px;
+          border-radius: 20px;
+        }
+
+        .popup img {
+          border-radius: 10px;
+          margin-bottom: 15px;
+        }
+
+        .popup p {
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+
+        .popup button {
+          padding: 10px 25px;
+          font-size: 0.95rem;
+        }
+
+        .falling-letter {
+          width: 40px;
+          animation-duration: 9s;
+        }
+
+        .heart {
+          font-size: 18px !important;
+        }
+
+        .falling-letter::before {
+          content: "";
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+        }
+
+        .gallery-nav {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5rem;
+        }
+
+        .gallery-prev {
+          left: -60px;
+        }
+
+        .gallery-next {
+          right: -60px;
+        }
+
+        .gallery-close {
+          top: -40px;
+          width: 40px;
+          height: 40px;
+          font-size: 1.5rem;
+        }
+
+        .gallery-caption {
+          font-size: 1rem;
+          margin-top: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Thông điệp chúc mừng-->
+    <div class="center-message">
+      <strong>Chúc mừng Ngày phụ nữ Việt Nam</strong>
+      <!--Sửa tiêu đề chúc mừng ở đây-->
+      <span id="centerText">
+        Ngày 20/10<br />
+        <!-- Sử lời nhắn hiển thị đầu ở đây-->
+    Happy Women's Day Cúc Hoàng!
+      </span> 
+    </div>
+
+    <!-- Ảnh động trang trí -->
+    <img src="./assets/mewmew.gif" alt="GIF" class="center-gif" />
+    <!-- Thay ảnh động bên dưới -->
+
+    <!-- Hiển thị lời chúc -->
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <img id="popupImage" src="./assets/anh2.jpg" alt="Lời chúc" />
+        <p id="popupMessage">20/10 vui vẻ</p>
+        <button onclick="closePopup()">Đóng</button>
+      </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Photo Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+      <div class="gallery-content">
+        <button class="gallery-close" onclick="closeGallery()">&times;</button>
+        <button class="gallery-nav gallery-prev" onclick="prevImage()">‹</button>
+        <button class="gallery-nav gallery-next" onclick="nextImage()">›</button>
+        <img id="galleryImage" class="gallery-image" src="" alt="Gallery Image">
+        <div class="gallery-caption" id="galleryCaption"></div>
+      </div>
+    </div>
+
+    <!-- Nhạc nền  -->
+    <audio id="player" src="./assets/Nơi Này Có Anh.mp3"></audio>
+    <!-- Sửa bài hát ở đây -->
+
+    <script>
+      //Sửa ảnh và lời nhắn ở đây
+      const messages = [
+        {
+          img: "./assets/anh1.jpg", 
+          text: "Chúc chị iêuuu của em luôn luôn vui vẻ và nở nụ cười trên môi, luôn xinhh yêu dễ thương và hạnh phúc nhé!"
+        },
+        {
+          img: "./assets/anh2.jpg", 
+          text: "Ngày 20/10, chúc chị luôn xinh đẹp, thành công và hạnh phúc! Chị là người phụ nữ tuyệt vời nhất trong lòng em 💕"
+        },
+        {
+          img: "./assets/anh3.jpg", 
+          text: "Chúc mừng ngày Phụ nữ Việt Nam! Chúc chị iêuuu của em luôn rạng rỡ, tự tin và đạt được mọi ước mơ của mình 🌸"
+        },
+        {
+          img: "./assets/anh4.jpg", 
+          text: "20/10 vui vẻ! Chúc chị iêuuu của em luôn được yêu thương, chăm sóc và hạnh phúc trong cuộc sống 💖"
+        },
+        {
+          img: "./assets/anh5.jpg", 
+          text: "Gửi đến chị những lời chúc tốt đẹp nhất nhân ngày 20/10. Chị xứng đáng với tất cả những điều tuyệt vời nhất! ✨"
+        },
+        {
+          img: "./assets/q3.png", 
+          text: "Chúc chị luôn xinh đẹp như những bông hoa, tỏa sáng như ánh mặt trời và hạnh phúc như những ngôi sao trên trời 🌺"
+        },
+        {
+          img: "./assets/t2.png", 
+          text: "Ngày 20/10 đặc biệt, chúc chị luôn được bao bọc bởi tình yêu thương và hạnh phúc trọn vẹn! 💝"
+        },
+        {
+          img: "./assets/h3.png", 
+          text: "Chúc chị iêuuu của em luôn mạnh mẽ, tự tin và thành công trong mọi việc! 🌟"
+        }
+      ];
+
+      let currentMessageIndex = 0;
+      let hasFirstLetterFallen = false;
+      let particlesCreated = false;
+      let currentGalleryIndex = 0;
+      let isTyping = false;
+
+      const popup = document.getElementById("popup");
+      const overlay = document.getElementById("overlay");
+      const popupImage = document.getElementById("popupImage");
+      const popupMessage = document.getElementById("popupMessage");
+      const centerText = document.getElementById("centerText");
+      const galleryModal = document.getElementById("galleryModal");
+      const galleryImage = document.getElementById("galleryImage");
+      const galleryCaption = document.getElementById("galleryCaption");
+      //Thay những ảnh rơi từ trên xuống ở đây
+      const letterImages = [
+        "./assets/letters.png",
+        "./assets/anh1.jpg",
+        "./assets/anh2.jpg",
+        "./assets/anh3.jpg",
+        "./assets/anh4.jpg",
+        "./assets/anh5.jpg",
+        "./assets/q3.png",
+        "./assets/t2.png",
+        "./assets/h3.png",
+      ];
+
+      function createHeartExplosion(x, y) {
+        //Thay icon khi ấn thư, hoa, quà
+        const hearts = ["💗", "💕", "💖", "💝", "💘"];
+        const numHearts = 15;
+
+        for (let i = 0; i < numHearts; i++) {
+          const heart = document.createElement("div");
+          heart.classList.add("heart");
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+          const angle = ((Math.PI * 2) / numHearts) * i;
+          const distance = Math.random() * 100 + 50;
+
+          heart.style.left = x + "px";
+          heart.style.top = y + "px";
+          heart.style.setProperty("--dx", Math.cos(angle) * distance + "px");
+          heart.style.setProperty("--dy", Math.sin(angle) * distance + "px");
+          heart.style.fontSize = Math.random() * 15 + 20 + "px";
+
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 2000);
+        }
+      }
+
+      function createFloatingParticles() {
+        // Tạo particles bay lơ lửng
+        for (let i = 0; i < 8; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+          particle.style.left = Math.random() * window.innerWidth + "px";
+          particle.style.top = Math.random() * window.innerHeight + "px";
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          document.body.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, 10000);
+        }
+      }
+
+      function createFloatingFlowers() {
+        // Tạo hoa bay lơ lửng
+        for (let i = 0; i < 5; i++) {
+          const flower = document.createElement("div");
+          flower.classList.add("flower");
+          flower.style.left = Math.random() * window.innerWidth + "px";
+          flower.style.animationDelay = Math.random() * 12 + "s";
+          document.body.appendChild(flower);
+
+          setTimeout(() => {
+            flower.remove();
+          }, 15000);
+        }
+      }
+
+      function createFloatingHearts() {
+        // Tạo tim bay lơ lửng
+        for (let i = 0; i < 6; i++) {
+          const heart = document.createElement("div");
+          heart.classList.add("heart-particle");
+          heart.style.left = Math.random() * window.innerWidth + "px";
+          heart.style.animationDelay = Math.random() * 8 + "s";
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 12000);
+        }
+      }
+
+      function createSparkles() {
+        // Tạo hiệu ứng lấp lánh
+        for (let i = 0; i < 10; i++) {
+          const sparkle = document.createElement("div");
+          sparkle.classList.add("sparkle");
+          sparkle.style.left = Math.random() * window.innerWidth + "px";
+          sparkle.style.top = Math.random() * window.innerHeight + "px";
+          sparkle.style.animationDelay = Math.random() * 2 + "s";
+          document.body.appendChild(sparkle);
+
+          setTimeout(() => {
+            sparkle.remove();
+          }, 4000);
+        }
+      }
+
+      function createFallingLetter() {
+        const letter = document.createElement("img");
+        const randomImage =
+          letterImages[Math.floor(Math.random() * letterImages.length)];
+        letter.src = randomImage;
+        letter.classList.add("falling-letter");
+        letter.style.left = Math.random() * (window.innerWidth - 50) + "px";
+        letter.addEventListener("click", (e) => {
+          createHeartExplosion(e.clientX, e.clientY);
+          letter.classList.add("letter-clicked");
+          setTimeout(() => {
+            showPopup();
+          }, 300);
+        });
+
+        document.body.appendChild(letter);
+
+        setTimeout(() => {
+          letter.remove();
+        }, 8000);
+      }
+
+      function typeText(element, text, speed = 50) {
+        if (isTyping) return;
+        isTyping = true;
+        element.innerHTML = '';
+        let i = 0;
+        
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          } else {
+            isTyping = false;
+          }
+        }
+        
+        type();
+      }
+
+      function showPopup() {
+        const message = messages[currentMessageIndex];
+        popupImage.src = message.img;
+        popup.style.display = "block";
+        overlay.classList.add("active");
+
+        // Thêm typing effect cho lời chúc
+        typeText(popupMessage, message.text, 30);
+
+        popup.dataset.currentMessage = message.text;
+
+        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+      }
+
+      function openGallery(imageSrc, caption) {
+        currentGalleryIndex = messages.findIndex(msg => msg.img === imageSrc);
+        galleryImage.src = imageSrc;
+        galleryCaption.textContent = caption;
+        galleryModal.classList.add("active");
+      }
+
+      function closeGallery() {
+        galleryModal.classList.remove("active");
+      }
+
+      function nextImage() {
+        currentGalleryIndex = (currentGalleryIndex + 1) % messages.length;
+        const message = messages[currentGalleryIndex];
+        galleryImage.src = message.img;
+        galleryCaption.textContent = message.text;
+      }
+
+      function prevImage() {
+        currentGalleryIndex = currentGalleryIndex === 0 ? messages.length - 1 : currentGalleryIndex - 1;
+        const message = messages[currentGalleryIndex];
+        galleryImage.src = message.img;
+        galleryCaption.textContent = message.text;
+      }
+
+      function closePopup() {
+        popup.style.display = "none";
+        overlay.classList.remove("active");
+
+        if (popup.dataset.currentMessage) {
+          centerText.innerHTML = popup.dataset.currentMessage;
+        }
+      }
+
+      document.body.addEventListener("click", function () {
+        const player = document.getElementById("player");
+        if (player.paused) {
+          player.play();
+        }
+      });
+
+      overlay.addEventListener("click", closePopup);
+      
+      // Thêm event listener cho ảnh trong popup
+      popupImage.addEventListener("click", function() {
+        const message = messages[currentMessageIndex - 1];
+        openGallery(message.img, message.text);
+      });
+
+      // Thêm keyboard navigation cho gallery
+      document.addEventListener("keydown", function(e) {
+        if (galleryModal.classList.contains("active")) {
+          if (e.key === "Escape") {
+            closeGallery();
+          } else if (e.key === "ArrowLeft") {
+            prevImage();
+          } else if (e.key === "ArrowRight") {
+            nextImage();
+          }
+        }
+      });
+
+      // Thêm event listener cho gallery modal
+      galleryModal.addEventListener("click", function(e) {
+        if (e.target === galleryModal) {
+          closeGallery();
+        }
+      });
+      
+      // Khởi tạo tất cả hiệu ứng
+      function initAllEffects() {
+        // Tạo hiệu ứng ban đầu
+        createFloatingParticles();
+        createFloatingFlowers();
+        createFloatingHearts();
+        createSparkles();
+        
+        // Tạo hiệu ứng định kỳ
+        setInterval(() => {
+          createFallingLetter();
+        }, 1000);
+        
+        setInterval(() => {
+          createFloatingParticles();
+        }, 8000);
+        
+        setInterval(() => {
+          createFloatingFlowers();
+        }, 12000);
+        
+        setInterval(() => {
+          createFloatingHearts();
+        }, 10000);
+        
+        setInterval(() => {
+          createSparkles();
+        }, 5000);
+      }
+
+      // Khởi tạo khi trang load
+      initAllEffects();
+    </script>
+  </body>
+</html>
